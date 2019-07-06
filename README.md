@@ -75,3 +75,5 @@
   - `Serial.println(setTimerMode);`
 - (Upload, press button, move slider, watch LEDs and serial monitor)
 - Notice how the serial monitor counts down the number the LEDs were on once entering the "countdown mode"
+- Notice also that it doesn't stop at 0, it keeps going indefinitely
+### 7. Make it so it doesn't count past 0
