@@ -62,8 +62,16 @@
   - `else{}`
 - (Upload, move potentiometer, click button, watch LEDs)
 - Notice how you can click the button once to stop the potentiometer from changing the LEDs, then click again to have them change again
-
-
-
-
-
+### 6. Make variables for counting down the timer when not in "set timer mode"
+- New code lines:
+  - `int timerCountDown = 0;`
+  - `long countDownTimerStart = 0;`
+  - `if((millis()-countDownTimerStart)>500)`
+  - `{Serial.println(timerCountDown);`
+  - `countDownTimerStart = millis();`
+  - `timerCountDown = timerCountDown - 1;}`
+  - `timerCountDown = mapPotentiometer;`
+- Comment out:
+  - `Serial.println(setTimerMode);`
+- (Upload, press button, move slider, watch LEDs and serial monitor)
+- Notice how the serial monitor counts down the number the LEDs were on once entering the "countdown mode"
