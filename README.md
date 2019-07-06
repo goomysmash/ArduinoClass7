@@ -70,6 +70,7 @@
   - `{Serial.println(timerCountDown);`
   - `countDownTimerStart = millis();`
   - `timerCountDown = timerCountDown - 1;}`
+- This new line goes in the debounce state machine
   - `timerCountDown = mapPotentiometer;`
 - Comment out:
   - `Serial.println(setTimerMode);`
@@ -77,3 +78,25 @@
 - Notice how the serial monitor counts down the number the LEDs were on once entering the "countdown mode"
 - Notice also that it doesn't stop at 0, it keeps going indefinitely
 ### 7. Make it so it doesn't count past 0
+- New code lines:
+  - `if (timerCountDown < 0){timerCountDown=0;}`
+- (Upload, press button, move slider, watch serial monitor)
+- Notice how it goes to 0 and keeps returning 0
+### 8. Make the LEDs indicate where it is in the countdown
+- Copy the if else statements from before for showing the LEDs but change mapPotentiometer to timerCountDown
+  - `if(bitRead(timerCountDown, 0) == 1){digitalWrite(5, HIGH);}`
+  - `else{digitalWrite(5, LOW);}`
+  - `if(bitRead(timerCountDown, 1) == 1){digitalWrite(8, HIGH);}`
+  - `else{digitalWrite(8, LOW);}`
+  - `if(bitRead(timerCountDown, 2) == 1){digitalWrite(11, HIGH);}`
+  - `else{digitalWrite(11, LOW);}`
+- Put the above code in the else statement where the coundown happens
+- (Upload, press button, move slider, watch LEDs and serial monitor)
+- It works! You can set the time with the slider then press the button and it will count down to 0. Then press the button again to reset
+- It counts down pretty fast though, let's change it so it takes longer to count down
+### 9. Change the part of the code pertaining to how long 1 countdown should take
+- Line to be modified:
+  - `if((millis()-countDownTimerStart)>500)`
+- To:
+  - `if((millis()-countDownTimerStart)>5000)`
+- If you'd like the timer to count down every minute, change the '5000' to '60000'
