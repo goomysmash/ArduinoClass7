@@ -1,5 +1,5 @@
 ## Class 7: Simple kitchen timer program
-### 1. Load in the analog slider program from Class 6
+### 1. Load in the analog slider program from Class 6 (file 5)
 
 ### 2. Attach the push button and debouncing code from Class 4
 - Copied code lines:
@@ -11,7 +11,7 @@
 
 ### 3. Copy the state machine function for debouncing from Class 4 and remove all references to 'counter'
 - Uncomment the "successfull press" serial print message:
-  -`Serial.println("successful press");`
+  - `//Serial.println("successful press");`
 - Comment out the print statement for the analogRead:
   - `Serial.print("mapPotentiometer: ");`
   - `Serial.println(mapPotentiometer, BIN);`
@@ -42,8 +42,7 @@
 - (Upload, move potentiometer, click button, watch LEDs and Serial monitor)
 - Notice how we can do 2 things at once: Turning on LEDs with the potentiometer and clicking a button to send a message to the serial monitor
 - That's the power of using state machines and not including long delay() statements
-
-
+### 4. Make variables for switching between "set time mode" and "countdown mode"
 
 
 
